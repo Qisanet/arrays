@@ -1,0 +1,153 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sum of Two Numbers</title>
+</head>
+<script>
+    function compute() {
+        var Number1 = parseInt(document.getElementById("computeNumber1").value);
+        var Number2 = parseInt(document.getElementById("computeNumber2").value);
+        var result = document.getElementById("result");
+        var sum = Number1 + Number2;
+
+        if (Number1 === Number2) {
+            sum = sum * 3;
+            result.textContent="Result "+sum;
+        }
+
+       else{
+        result.textContent="They don't match"
+       }
+    }
+
+    function random() {
+        var hidden_num = 7;
+        var my_random = Math.floor(Math.random() * 10) + 1;
+        var input_num = Number(document.getElementById("input_num").value);
+        var results = document.getElementById("results");
+
+        if (input_num > 10 || input_num < 1) {
+            results.textContent = "Your number is out of range";
+        } else if (input_num === hidden_num) {
+            results.textContent = "Good Work";
+        } else {
+            results.textContent = "SORRY, you didn't guess right! Please try again.";
+        }
+    }
+
+    function range() {
+        var Number1 = parseInt(document.getElementById("rangeNumber1").value);
+        var Number2 = parseInt(document.getElementById("rangeNumber2").value);
+        var resultss = document.getElementById("resultss");
+
+        let upperBound = 99;
+        let lowerBound = 50;
+
+        if ((Number1 >= lowerBound && Number1 <= upperBound)&& (Number2 >= lowerBound && Number2 <= upperBound)) {
+            resultss.textContent = "This number is within the range.";
+        } else {
+            resultss.textContent = "This number is out of the range.";
+        }
+    }
+
+function findShortestPath(){
+
+    var Number1 = parseInt(document.getElementById("closestNumber1").value);
+        var Number2 = parseInt(document.getElementById("closestNumber2").value);
+        var resultsss = document.getElementById("resultsss");
+        var diff1 = Math.abs(Number1 - 100);
+        var diff2 = Math.abs(Number2 - 100);
+
+        if (diff1 < diff2) {
+            resultsss.textContent = "The closest number to 100 is: " + Number1;
+            console.log("working")
+        } else if (diff2 < diff1) {
+            resultsss.textContent = "The closest number to 100 is: " + Number2;
+        } else {
+            resultsss.textContent = "Both numbers are equally close to 100.";
+        }
+}
+
+</script>
+<body>
+    <form>
+        <h2>We are going to compute two numbers and if they are the same number we will add them and multiply by "3"</h2>
+        <h3>Number 1: <input type="text" id="computeNumber1"></h3>
+        <h3>Number 2: <input type="text" id="computeNumber2"></h3>
+        <button type="button" onclick="compute()">Compute</button>
+        <p id="result"></p>
+    </form>
+
+    <form>
+        <h2>Enter a number between 1 and 10:</h2>
+        <input type="text" id="input_num">
+        <button type="button" onclick="random()">Check if I guessed right</button>
+        <p id="results"></p>
+    </form>
+
+    <form>
+        <h2>Check if the number is in the range</h2>
+        <h3>Number 1: <input type="text" id="rangeNumber1"></h3>
+        <h3>Number 2: <input type="text" id="rangeNumber2"></h3>
+        <button type="button" onclick="range()">Check if the number is in the range of 50 and 99 (inclusive)</button>
+        <p id="resultss"></p>
+    </form>
+
+    <form>
+        <h2>Which one of the two numbers is closest to 100?</h2>
+        <h3>Number 1: <input type="text" id="closestNumber1"></h3>
+        <h3>Number 2: <input type="text" id="closestNumber2"></h3>
+        <button type="button" onclick="findShortestPath()">Which one is closest to 100</button>
+        <p id="resultsss"></p>
+    </form>
+   
+
+
+    <h1>Add Items to Array</h1>
+    <input type="text" id="itemInput"/><button id="addButton">Add Item</button>
+
+    <div id="output"></div>
+
+  
+    <script>
+        
+        let myArrayList = [];
+
+     
+        function addItem() {
+            const input = document.getElementById("itemInput");
+            const item = input.value;
+
+            
+            if (item) {
+                
+                myArrayList.push(item);
+               
+                input.value = '';
+               
+                displayArray();
+            } else {
+                alert("Please enter an item.");
+            }
+        }
+
+        function displayArray() {
+            const outputDiv = document.getElementById("output");
+            outputDiv.innerHTML = "Array Contents: " + myArrayList.join(', ');
+        }
+
+        
+        document.getElementById("addButton").addEventListener("click", addItem);
+    </script>
+  
+
+</body>
+</html>
+
+
+</body>
+</html>
+
